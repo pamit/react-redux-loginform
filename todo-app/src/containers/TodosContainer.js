@@ -27,8 +27,7 @@ class TodosContainer extends Component {
   updateTodo = (e, id) => {
     axios.put(`/api/v1/todos/${id}`, {todo: {done: e.target.checked}})
     .then(response => {
-      const todoIndex = this.props.todos.findIndex(x => x.id === response.data.id)
-      this.props.dispatch(toggleTodo(todoIndex))
+      this.props.dispatch(toggleTodo(id))
     })
     .catch(error => console.log(error))      
   }
@@ -36,8 +35,7 @@ class TodosContainer extends Component {
   deleteTodo = (id) => {
     axios.delete(`/api/v1/todos/${id}`)
     .then(response => {
-      const todoIndex = this.props.todos.findIndex(x => x.id === id)
-      this.props.dispatch(deleteTodo(todoIndex))
+      this.props.dispatch(deleteTodo(id))
     })
     .catch(error => console.log(error))
   }
