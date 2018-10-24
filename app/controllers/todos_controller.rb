@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   def index
-    todos = Todo.order("created_at DESC")
+    todos = Todo.select('id, title, done').order("created_at DESC")
     render json: todos
   end
 
