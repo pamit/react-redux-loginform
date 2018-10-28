@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+// import TodosContainer from './containers/TodosContainer.old'
 import TodosContainer from './containers/TodosContainer'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="header">
-          <h1>Todo List</h1>
-        </div>
-        <TodosContainer />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <TodosContainer />
+        );
+    }
 }
 
 export default App;
