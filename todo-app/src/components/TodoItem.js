@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
 class TodoItem extends Component {
-	constructor(props) {
-		super(props);
-    }
-
     updateTodo = (e, id) => {
         this.props.updateTodo({id: id, checked: e.target.checked})
     }

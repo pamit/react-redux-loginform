@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
 class InputBox extends Component {
-	constructor(props) {
-		super(props);
-    }
-
     createTodo = (e) => {
         if (e.key === 'Enter' && !(this.getTitle.value === '')) {
             this.props.createTodo(this.getTitle.value)

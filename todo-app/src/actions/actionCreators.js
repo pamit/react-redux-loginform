@@ -1,17 +1,27 @@
-import { LOAD_TODOS, ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions/actionTypes'
+import * as actions from '../actions/actionTypes'
 
 export function loadTodos(todos) {
-  return { type: LOAD_TODOS, todos: todos }
+  return { type: actions.LOAD_TODOS, todos: todos }
 }
 
 export function addTodo(id, title) {
-  return { type: ADD_TODO, id: id, title: title }
+  return { type: actions.ADD_TODO, id: id, title: title }
 }
 
 export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index: index }
+  return { type: actions.TOGGLE_TODO, index: index }
 }
 
 export function deleteTodo(index) {
-  return { type: DELETE_TODO, index: index }
+  return { type: actions.DELETE_TODO, index: index }
+}
+
+//////////////////////////////////////
+
+export function authenticated(token) {
+  return { type: actions.AUTHENTICATED, token: token }
+}
+
+export function unauthenticated() {
+  return { type: actions.UnAUTHENTICATED, token: null }
 }

@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user
+
   def index
     todos = Todo.select('id, title, done').order("created_at DESC")
     render json: todos

@@ -107,3 +107,17 @@ input[placeholder] {
 	margin-right: 5px;
 	cursor: default;
 }
+
+.alert {
+	margin: 0 auto;
+	max-width: 480px;
+}
+
+.Login {
+	padding: 60px 0;
+}
+
+.Login form {
+	margin: 0 auto;
+	max-width: 320px;
+}

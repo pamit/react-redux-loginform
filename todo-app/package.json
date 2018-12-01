@@ -9,6 +9,7 @@
     "font-awesome": "^4.7.0",
     "immutability-helper": "^2.8.1",
     "react": "^16.5.2",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
