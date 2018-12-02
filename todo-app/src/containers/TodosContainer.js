@@ -7,15 +7,16 @@ import TodoList from '../components/TodoList'
 
 class Todos extends Component {
 
-	getToken() {
+	getAuthToken() {
 		var config = {
 			headers: {}
 		}
-		config['headers']['Authorization'] = 'Bearer ' + localStorage.getItem('jwt')		
+		config['headers']['Authorization'] = 'Bearer ' + localStorage.getItem('jwt');
+		return config;
 	}
 
 	getTodos() {
-		var config = { headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') } }
+		var config = this.getAuthToken();
 
 		axios.get('/api/v1/todos', config)
 		.then(response => {
@@ -25,7 +26,7 @@ class Todos extends Component {
 	}
 
 	createTodo = (title) => {
-		var config = { headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') } }
+		var config = this.getAuthToken();
 
 		if (!(title === '')) {
 			axios.post('/api/v1/todos', {todo: {title: title}}, config)
@@ -37,7 +38,7 @@ class Todos extends Component {
 	}
 
 	updateTodo = (params) => {
-		var config = { headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') } }
+		var config = this.getAuthToken();
 
 		axios.put(`/api/v1/todos/${params.id}`, {todo: {done: params.checked}}, config)
 		.then(response => {
@@ -47,7 +48,7 @@ class Todos extends Component {
 	}
 
 	deleteTodo = (id) => {
-		var config = { headers: { Authorization: 'Bearer ' + localStorage.getItem('jwt') } }
+		var config = this.getAuthToken();
 
 		axios.delete(`/api/v1/todos/${id}`, config)
 		.then(response => {
@@ -74,8 +75,7 @@ class Todos extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		todos: state.todos,
-		authenticated: state.auth
+		todos: state.todos
 	}
 }
 

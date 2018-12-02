@@ -12,12 +12,13 @@ import { Router, Route, Switch } from 'react-router-dom'
 import SiteNavbar from './components/SiteNavbar';
 import history from './history';
 import { authenticated, unauthenticated } from './actions/actionCreators';
+// import TodosContainer from './containers/TodosContainer';
 
 const store = configureStore();
 
 const jwt = localStorage.getItem('jwt');
 if (jwt) {
-    store.dispatch(authenticated(jwt));
+    store.dispatch(authenticated());
 }
 else {
     store.dispatch(unauthenticated());
@@ -30,6 +31,7 @@ ReactDOM.render(
                 <SiteNavbar />
                 <Switch>
                     <Route exact path='/' component={App} />
+                    {/* <Route path="/app/" component={TodosContainer} /> */}
                     <Route path="/about/" component={About} />
                     <Route path="/login/" component={Login} />
                     <Route path="/logout/" component={Logout} />

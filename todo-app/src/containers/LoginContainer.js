@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import LoginForm from '../components/LoginForm'
-import { authenticated } from '../actions/actionCreators'
+import { authenticated, unauthenticated } from '../actions/actionCreators'
 import history from '../history';
 
 class LoginContainer extends Component {
@@ -15,11 +15,14 @@ class LoginContainer extends Component {
         }        
 		axios.post('/api/v1/user_token', data)
 		.then(response => {
-            this.props.dispatch(authenticated(response.data.jwt));
+            this.props.dispatch(authenticated());
             localStorage.setItem('jwt', response.data.jwt);
             history.push('/');
 		})
-		.catch(error => console.log(error))        
+		.catch(error => {
+            // console.log(error);
+            this.props.dispatch(unauthenticated('Login failed'));
+        })        
     }
 
     render() {

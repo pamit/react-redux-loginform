@@ -11,6 +11,9 @@ class SiteNavbar extends Component {
                 <Navbar.Brand>
                     <Link to="/">Home</Link>
                 </Navbar.Brand>
+                {/* <Navbar.Brand>
+                    <Link to="/app">App</Link>
+                </Navbar.Brand>                 */}
                 <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>

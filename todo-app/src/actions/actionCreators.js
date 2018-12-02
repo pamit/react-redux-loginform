@@ -18,10 +18,10 @@ export function deleteTodo(index) {
 
 //////////////////////////////////////
 
-export function authenticated(token) {
-  return { type: actions.AUTHENTICATED, token: token }
+export function authenticated() {
+  return { type: actions.AUTHENTICATED }
 }
 
-export function unauthenticated() {
-  return { type: actions.UnAUTHENTICATED, token: null }
+export function unauthenticated(error) {
+  return { type: actions.UnAUTHENTICATED, error: error }
 }

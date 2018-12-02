@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { connect } from 'react-redux'
+import { Alert } from "react-bootstrap";
 
 class LoginForm extends Component {
     constructor(props) {
@@ -27,8 +29,15 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <div className="Login">
+            <div className="Login">                
                 <form onSubmit={this.handleSubmit}>
+                    {this.props.auth.error !== undefined && 
+                        <FormGroup bsSize="large">
+                            <Alert bsStyle="danger">
+                                <strong>{this.props.auth.error}</strong>
+                            </Alert>                        
+                        </FormGroup>
+                    }
                     <FormGroup controlId="email" bsSize="large">
                         <ControlLabel>Email</ControlLabel>
                         <FormControl
@@ -55,4 +64,10 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+const mapStateToProps = (state) => {
+	return {
+		auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps)(LoginForm)
