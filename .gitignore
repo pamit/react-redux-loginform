@@ -27,3 +27,5 @@
 /config/master.key
 
 todo-app/node_modules/*
+
+/public
