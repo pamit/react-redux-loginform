@@ -24,11 +24,22 @@
 #   <<: *default
 #   database: db/production.sqlite3
 
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
   database: todo_react_development
-  pool: 5
   host: localhost
   username: postgres
-  password: postgres
+  password: postgres  
+
+# production:
+#   <<: *default
+#   database: todo_react_production
+#   username: postgres
+#   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

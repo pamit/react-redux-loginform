@@ -2,4 +2,4 @@
 Todo.create(title: "Reserve tickets for the Imagine Dragons convert", done: false)
 Todo.create(title: "Buy food: milk, bread, fruits", done: false)
 
-User.create!(email: 'user', password: '1')
+User.create!(email: 'user@todo.io', password: '1')
