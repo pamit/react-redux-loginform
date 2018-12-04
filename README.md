@@ -2,10 +2,15 @@
 
 This is a sample React + Rails Todo list app. To run this:
 
-* rails db:migrate
+```
+rails db:migrate
 
-* cd todo-app && npm install
+cd todo-app && npm install
 
-* heroku local -f Procfile.dev
+heroku local -f Procfile.dev
+```
 
-* heroku run rake db:seed --app HEROKU_APP
+To run on Heroku:
+
+``` 
+heroku run rake db:migrate db:seed --app HEROKU_APP

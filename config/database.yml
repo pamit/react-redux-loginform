@@ -38,8 +38,8 @@ development:
   username: postgres
   password: postgres  
 
-# production:
-#   <<: *default
-#   database: todo_react_production
-#   username: postgres
-#   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
