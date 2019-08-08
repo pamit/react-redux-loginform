@@ -1,13 +1,13 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { unauthenticated } from '../actions/actionCreators'
-import history from '../history';
+import { withRouter } from "react-router-dom";
 
 class LogoutContainer extends Component {
     componentWillMount() {
         this.props.dispatch(unauthenticated());
         localStorage.removeItem('jwt');
-        history.push('/');
+        this.props.history.push('/');
     }
 
     render() {
@@ -15,4 +15,4 @@ class LogoutContainer extends Component {
     }
 }
 
-export default connect()(LogoutContainer);
+export default connect()(withRouter(LogoutContainer));
