@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { axios } from "../utils/Axios";
 import { connect } from 'react-redux'
 import LoginForm from '../components/LoginForm'
 import { authenticated, unauthenticated } from '../actions/actionCreators'
