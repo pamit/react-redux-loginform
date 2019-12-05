@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { axios } from "../utils/Axios";
 import { connect } from 'react-redux'
 import { loadTodos, addTodo, toggleTodo, deleteTodo } from '../actions/actionCreators'
 
@@ -20,8 +20,8 @@ class TodosContainer extends Component {
         this.props.dispatch(addTodo(response.data.id, response.data.title))
         this.getTitle.value = '';
       })
-      .catch(error => console.log(error))      
-    }    
+      .catch(error => console.log(error))
+    }
   }
 
   updateTodo = (e, id) => {
@@ -29,7 +29,7 @@ class TodosContainer extends Component {
     .then(response => {
       this.props.dispatch(toggleTodo(id))
     })
-    .catch(error => console.log(error))      
+    .catch(error => console.log(error))
   }
 
   deleteTodo = (id) => {
@@ -53,21 +53,21 @@ class TodosContainer extends Component {
         <div className="inputContainer">
           <input className="taskInput" type="text" placeholder="Add a task" maxLength="50"
             onKeyPress={this.createTodo} ref={(input)=>this.getTitle = input} />
-        </div>        
+        </div>
         <div className="listWrapper">
           <ul className="taskList">
             {this.props.todos.map((todo) => {
               return(
                 <li className="task" key={todo.id} id={todo.id}>
-                  <input className="taskCheckbox" type="checkbox" 
-                    checked={todo.done} onChange={(e) => this.updateTodo(e, todo.id)} />              
+                  <input className="taskCheckbox" type="checkbox"
+                    checked={todo.done} onChange={(e) => this.updateTodo(e, todo.id)} />
                   <label className="taskLabel">{todo.title}</label>
                   <span className="deleteTaskBtn" onClick={(e) => this.deleteTodo(todo.id)}>
                     x
                   </span>
                 </li>
-              )       
-            })}        
+              )
+            })}
           </ul>
         </div>
       </div>

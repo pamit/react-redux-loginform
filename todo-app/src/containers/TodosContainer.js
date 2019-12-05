@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { axios } from "../utils/Axios";
 import { connect } from 'react-redux'
 import { loadTodos, addTodo, toggleTodo, deleteTodo } from '../actions/actionCreators'
 import InputBox from '../components/InputBox'
@@ -33,8 +33,8 @@ class Todos extends Component {
 			.then(response => {
 				this.props.dispatch(addTodo(response.data.id, response.data.title))
 			})
-			.catch(error => console.log(error))      
-		}    
+			.catch(error => console.log(error))
+		}
 	}
 
 	updateTodo = (params) => {
@@ -44,7 +44,7 @@ class Todos extends Component {
 		.then(response => {
 			this.props.dispatch(toggleTodo(params.id))
 		})
-		.catch(error => console.log(error))      
+		.catch(error => console.log(error))
 	}
 
 	deleteTodo = (id) => {
@@ -65,8 +65,8 @@ class Todos extends Component {
 		return (
 			<div className="container">
 				<InputBox createTodo={this.createTodo} />
-				<TodoList todos={this.props.todos} 
-					updateTodo={this.updateTodo} 
+				<TodoList todos={this.props.todos}
+					updateTodo={this.updateTodo}
 					deleteTodo={this.deleteTodo} />
 			</div>
 		)

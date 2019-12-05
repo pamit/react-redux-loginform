@@ -8,9 +8,8 @@ import Logout from './containers/LogoutContainer';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './store';
-import { Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import SiteNavbar from './components/SiteNavbar';
-import history from './history';
 import { authenticated, unauthenticated } from './actions/actionCreators';
 // import TodosContainer from './containers/TodosContainer';
 
@@ -26,7 +25,7 @@ else {
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history}>
+        <BrowserRouter>
             <div>
                 <SiteNavbar />
                 <Switch>
@@ -37,7 +36,7 @@ ReactDOM.render(
                     <Route path="/logout/" component={Logout} />
                 </Switch>
             </div>
-        </Router>    
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );
