@@ -5,7 +5,7 @@
   "proxy": "http://localhost:3000",
   "dependencies": {
     "ajv": "^6.5.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "font-awesome": "^4.7.0",
     "immutability-helper": "^2.8.1",
     "react": "^16.5.2",
